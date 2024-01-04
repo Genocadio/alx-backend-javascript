@@ -1,16 +1,13 @@
-/* eslint-disable prefer-const */
-/* eslint-disable no-unused-vars */
 export default function taskBlock(trueOrFalse) {
-  // eslint-disable-next-line no-var
   const task = false;
-  // eslint-disable-next-line no-var
   const task2 = true;
 
+  /* eslint-disable no-unused-vars */
   if (trueOrFalse) {
-    let task = true;
-    // eslint-disable-next-line no-unused-vars
-    let task2 = false;
+    const task = true;
+    const task2 = false;
   }
+  /* eslint-enable no-unused-vars */
 
   return [task, task2];
 }
