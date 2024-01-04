@@ -11,8 +11,8 @@ class SkyHighBuilding extends Building {
     return this._floors;
   }
 
-  set floors(floors) {
-    this._floors = floors;
+  set floors(floor) {
+    this._floors = floor;
   }
 
   evacuationWarningMessage() {
