@@ -68,11 +68,12 @@ app.get('/students', (_, res) => {
       setResponse(res, responseText);
     })
     .catch((err) => {
-      responseParts.push(
-        err instanceof Error ? err.message : err.toString(),
-      );
+      responseParts.push(err instanceof Error ? err.message : err.toString());
       const responseText = responseParts.join('\n');
-      setResponse(res, responseText);
+      res.setHeader('Content-Type', 'text/plain');
+      res.setHeader('Content-Length', responseText.length);
+      res.statusCode = 200;
+      res.write(Buffer.from(responseText));
     });
 });
 
