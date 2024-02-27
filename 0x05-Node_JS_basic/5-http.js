@@ -17,6 +17,7 @@ function countStudents(file) {
         const lines = data.toString().split('\n');
         for (const line of lines) {
           if (line) {
+            // eslint-disable-next-line no-plusplus
             length++;
             const field = line.split(',');
             if (students[field[3]]) {
