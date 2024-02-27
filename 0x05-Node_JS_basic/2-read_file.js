@@ -1,27 +1,29 @@
 const fs = require('fs');
 
-function countStudents(path) {
-  try {
-    const data = fs.readFileSync(path, 'utf8');
-    const lines = data.split('\n').filter((line) => line.trim() !== '');
+const countStudents = (dataPath) => {
+  const fileLines = fs.readFileSync(dataPath, 'utf-8').trim().split('\n');
+  const studentGroups = {};
 
-    if (lines.length === 0) {
-      throw new Error('Cannot load the database');
+  const dbFieldNames = fileLines[0].split(',');
+  const studentPropNames = dbFieldNames.slice(0, -1);
+
+  for (const line of fileLines.slice(1)) {
+    const [studentRecord, field] = line.trim().split(/,(?=\s*\w+$)/);
+    if (!studentGroups[field]) {
+      studentGroups[field] = [];
     }
-
-    const fields = lines[0].split(',');
-    const students = lines.slice(1);
-
-    console.log(`Number of students: ${students.length}`);
-
-    fields.forEach((field, index) => {
-      const fieldStudents = students.filter((student) => student.split(',')[index].trim() !== '');
-      console.log(`Number of students in ${field}: ${fieldStudents.length}. List: ${fieldStudents.map((student) => student.split(',')[index].trim()).join(', ')}`);
-    });
-  } catch (error) {
-    console.error(error.message);
+    const studentEntries = studentPropNames.map((propName, idx) => [propName, studentRecord.split(',')[idx]]);
+    studentGroups[field].push(Object.fromEntries(studentEntries));
   }
-}
+
+  const totalStudents = Object.values(studentGroups).reduce((acc, cur) => acc + cur.length, 0);
+  console.log(`Number of students: ${totalStudents}`);
+
+  for (const [field, group] of Object.entries(studentGroups)) {
+    const studentNames = group.map((student) => student.firstname).join(', ');
+    console.log(`Number of students in ${field}: ${group.length}. List: ${studentNames}`);
+  }
+};
 
 countStudents('database.csv');
 
