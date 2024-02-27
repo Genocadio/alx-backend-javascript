@@ -5,11 +5,11 @@ const PORT = 1245;
 const app = express();
 
 app.get('/', (_, res) => {
-  res.send('Hello Holberton School!\n');
+  res.send('Hello Holberton School!');
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running and listening on port ${PORT}`);
+  console.log(`Server is listening on port ${PORT}`);
 });
 
 module.exports = app;
