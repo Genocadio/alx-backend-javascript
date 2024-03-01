@@ -55,5 +55,9 @@ describe('calculateNumber', function() {
             assert.equal(calculateNumber('DIVIDE', 1.2, 3.7), 0.25);
         }
     );
+    it('shpuld handle zero denominator', function() {
+            assert.equal(calculateNumber('DIVIDE', 1, 0), 'Error');
+        }
+    );
 }
 );
