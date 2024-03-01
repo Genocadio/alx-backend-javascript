@@ -13,6 +13,14 @@ describe('calculateNumber', function() {
             assert.equal(calculateNumber(1.2, 3.7), 5);
         }
     );
+    it('should handle one float', function() {
+            assert.equal(calculateNumber(1.5, 3), 5);
+        }
+    );
+    it('should handle last floats', function() {
+            assert.equal(calculateNumber(1, 3.5), 5);
+        }
+    );
     it('should handle zero', function() {
             assert.equal(calculateNumber(0, 0), 0);
         }
