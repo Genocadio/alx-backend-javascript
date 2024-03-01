@@ -9,11 +9,11 @@ describe('calculateNumber', function() {
             assert.equal(calculateNumber(-1, -2), -3);
         }
     );
-    it('should round floats', function() {
+    it('should round two floats', function() {
             assert.equal(calculateNumber(1.2, 3.7), 5);
         }
     );
-    it('should handle one float', function() {
+    it('should handle one first float', function() {
             assert.equal(calculateNumber(1.5, 3), 5);
         }
     );
