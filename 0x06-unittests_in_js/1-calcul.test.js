@@ -52,7 +52,7 @@ describe('calculateNumber', function() {
         }
     );
     it('should round two floats', function() {
-            assert.equal(calculateNumber('DIVIDE', 1.2, 3.7), 0.5);
+            assert.equal(calculateNumber('DIVIDE', 1.2, 3.7), 0.25);
         }
     );
 }
