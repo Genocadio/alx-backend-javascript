@@ -10,7 +10,7 @@ describe('Testing numbers', () => {
   });
 
   it.skip(' true', () => {
-    expect('b' === 'b').to.be.true;
+    expect(1 === 3).to.be.true;
   });
 
   it('equal', () => {
