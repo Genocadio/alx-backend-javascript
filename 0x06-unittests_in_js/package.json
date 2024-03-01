@@ -1,0 +1,17 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "This is the nodejs backend unittests project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "alx"
+  ],
+  "author": "geno",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^10.3.0"
+  }
+}
